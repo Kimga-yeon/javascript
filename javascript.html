@@ -4,35 +4,39 @@
   <title> welcome </title>
   <meta charset="utf-8">
   <script>
-  function bodysetbackgroundColor (color){
-     document.querySelector('body').style.backgroundColor = color;
-  }
-  function bodysetColor (color){
-    document.querySelector('body').style.color = color;
-  }
-  function linksetColor (color){
-    var alist = document.querySelectorAll('a');
-    var i = 0;
-    while(i < alist.length){
-    alist[i].style.color = color;
-    i = i + 1;
+  var links = {
+    setColor:function (color){
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while(i < alist.length){
+      alist[i].style.color = color;
+      i = i + 1;
+      }
     }
   }
+  var body = {
+    setColor:function (color){
+      document.querySelector('body').style.color = color;
+  },
+   setbackgroundColor:function (color){
+     document.querySelector('body').style.backgroundColor = color;
+   }
+ }
   function nightDayhandle(self){
   var target = document.querySelector('body');
   if(self.value === 'night'){
-    bodysetbackgroundColor ('black');
-    bodysetColor ('white');
+    body.setbackgroundColor ('black');
+    body.setColor ('white');
      self.value = 'day';
 
-  linksetColor ('powderblue');
+  links.setColor ('powderblue');
 
   } else {
-    bodysetbackgroundColor ('white');
-    bodysetColor ('black');
+    body.setbackgroundColor ('white');
+    body.setColor ('black');
     self.value = 'night';
 
- linksetColor ('blue');
+ links.setColor ('blue');
   }
 }
   </script>
